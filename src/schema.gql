@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  getFollowingFeed(following: GetFollowingFeedInput!): [TweetType!]!
+}
+
+type TweetType {
+  id: String!
+  content: String!
+  likes: Float!
+  author: ProfileType!
+}
+
+type ProfileType {
+  id: String!
+  username: String!
+}
+
+input GetFollowingFeedInput {
+  profileId: String!
+}
+
+type Mutation {
+  createProfile(profile: CreateProfileInput!): ProfileType!
+  createTweet(tweet: CreateTweetInput!): TweetType!
+  likeTweet(likeTweet: LikeTweetInput!): Float!
+  followProfile(follow: FollowProfileInput!): Float!
+}
+
+input CreateProfileInput {
+  username: String!
+}
+
+input CreateTweetInput {
+  content: String!
+  profileId: String!
+}
+
+input LikeTweetInput {
+  tweetId: String!
+  profileId: String!
+}
+
+input FollowProfileInput {
+  followerId: String!
+  profileId: String!
+}
